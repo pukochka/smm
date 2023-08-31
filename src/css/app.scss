@@ -1,0 +1,160 @@
+@import 'quasar/src/css/variables.sass';
+
+body {
+  font-family: 'Yandex Sans Text', serif !important;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+  background: transparent;
+  z-index: 12;
+  overflow: visible;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 6px;
+  background-color: var(--q-primary);
+  border-radius: 10px;
+  margin: 10px 0;
+  z-index: 12;
+  background-clip: padding-box;
+  -webkit-transition: background-color 0.28s ease-in-out;
+  transition: background-color 0.28s ease-in-out;
+}
+
+.rounded {
+  border-radius: 10px !important;
+}
+
+.rounded-left {
+  border-radius: 10px 0 0 10px !important;
+}
+
+.rounded-top {
+  border-radius: 10px 10px 0 0 !important;
+}
+
+.rounded-bottom {
+  border-radius: 0 0 10px 10px !important;
+}
+
+.bordered {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.bg-page {
+  background: #ffffff !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.order-dashed {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  border-bottom: 2px $grey-5 dotted;
+}
+
+.transition {
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1) transform;
+}
+
+.smm-tabs .q-tab__indicator {
+  height: calc(100% - 0.22em);
+  background: transparent;
+  border: currentColor 0.22em solid;
+  border-radius: 10px;
+  margin: 0.11em;
+}
+
+.smm-tabs .q-tabs__content--align-justify .q-tab {
+  flex: 10000 1 0;
+}
+
+.smm-portal-menu {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.smm-input .q-field__control {
+  border-radius: 10px;
+}
+
+.smm-input__favorite {
+  flex-grow: 1;
+}
+
+.smm-page__container {
+  color: #474747;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.smm-footer {
+  height: 52px;
+  box-shadow: 0 -2px 24px rgba(0, 0, 0, 0.1);
+}
+
+.smm-header {
+  height: 52px;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.1);
+}
+
+.smm-color__text {
+  color: #474747;
+}
+
+.smm-color__text-black {
+  color: #212121 !important;
+}
+
+.q-select__dialog {
+  border-radius: 10px !important;
+}
+
+.button-enter-active {
+  transition: all 0.15s ease-out;
+}
+
+.button-leave-active {
+  transition: all 0.15s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.button-enter-from,
+.button-leave-to {
+  transform: translateX(100%);
+}
+
+body.body--dark {
+  .bordered {
+    border-color: rgba(255, 255, 255, 0.28);
+  }
+
+  .smm-footer {
+    box-shadow: 0 -2px 24px rgba(255, 255, 255, 0.1);
+  }
+
+  .smm-header {
+    box-shadow: 0 -2px 24px rgba(255, 255, 255, 0.1);
+  }
+
+  .bg-page {
+    background: $dark-page !important;
+  }
+
+  .smm-portal-menu {
+    border: 1px solid rgba(255, 255, 255, 0.28);
+  }
+
+  .smm-color__text {
+    color: #ffffff;
+  }
+
+  .smm-color__text-black {
+    color: #ffffff !important;
+  }
+}
