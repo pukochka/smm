@@ -151,6 +151,7 @@ declare type SMMOrderStatuses =
   | 'Partial'
   | 'In progress'
   | 'Completed'
+  | 'Old'
   | 'Canceled';
 
 declare interface SMMFieldsSchema {

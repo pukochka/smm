@@ -3,6 +3,7 @@
     <div class="row q-col-gutter-xs">
       <div
         class="col-6"
+        v-show="value.condition"
         v-for="([name, value], index) of Object.entries(statuses)"
         :key="index"
       >
@@ -14,7 +15,7 @@
           class="rounded col-6 fit"
           align="left"
           :outline="statusFilter !== name"
-          @click="statusFilter = name"
+          @click="statusFilter = name as SMMOrderStatuses"
         >
           <q-icon :name="value.icon" size="24px" />
 
@@ -128,27 +129,49 @@ import {
   mdiProgressHelper,
   mdiInformation,
 } from '@quasar/extras/mdi-v7';
-const statuses = computed((): Record<string, any> => {
+const statuses = computed((): Record<SMMOrderStatuses, any> => {
   return {
     all: {
       label: lang.value.statuses.all,
       icon: mdiViewWeek,
       notify: lang.value.orders_notify,
+      condition: true,
     },
     Pending: {
       label: lang.value.statuses.Pending,
       icon: mdiTimerSandComplete,
       notify: lang.value.orders_pend_notify,
+      condition: true,
     },
     Partial: {
       label: lang.value.statuses.Partial,
       icon: mdiProgressHelper,
       notify: lang.value.orders_part_notify,
+      condition: true,
     },
     Completed: {
       label: lang.value.orders_completed,
       icon: mdiCheckUnderline,
       notify: lang.value.orders_comp_notify,
+      condition: true,
+    },
+    Canceled: {
+      label: '',
+      icon: '',
+      notify: '',
+      condition: false,
+    },
+    'In progress': {
+      label: '',
+      icon: '',
+      notify: '',
+      condition: false,
+    },
+    Old: {
+      label: '',
+      icon: '',
+      notify: '',
+      condition: false,
     },
   };
 });

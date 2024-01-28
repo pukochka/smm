@@ -5,6 +5,7 @@ const statuses: Record<SMMOrderStatuses, string> = {
   'In progress': 'Выполняется',
   Completed: 'Завершен',
   Canceled: 'Отмененный',
+  Old: 'Устарел',
 };
 
 const errs = {
