@@ -48,10 +48,10 @@
   </q-tab-panels>
 
   <field-item
-    v-for="(field, index) of data.schema"
     :key="index"
     :field="field"
     :optional="addict"
+    v-for="(field, index) of data.schema"
   />
 
   <q-item tag="label" dense class="rounded" v-if="addictVisible">
@@ -84,13 +84,13 @@
     <dashed-item :label="lang.total" :value="total" />
 
     <q-btn
-      unelevated
       no-caps
-      padding="12px"
+      unelevated
       size="md"
+      padding="12px"
       color="primary"
-      :label="lang.launch"
       class="col-12 rounded"
+      :label="lang.launch"
       :loading="loading.create"
       @click="createOrder"
     />

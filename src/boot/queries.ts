@@ -82,8 +82,16 @@ export async function fetchSMM<Q extends keyof SMMQueries>(
       } else if (query === 'getSettings') {
         /** */
 
-        useColor(response.data.data.color);
-        data.checkFavorites(response.data.data.black, response.data.data.white);
+        const { color, black, white } = response.data.data;
+
+        useColor(color);
+        data.checkFavorites(black, white);
+
+        try {
+          const { is_saved } = response.data.data;
+
+          data.isSaved = is_saved;
+        } catch {}
 
         /** */
       } else if (query === 'createOrder') {
@@ -135,7 +143,7 @@ export async function fetchUser(short?: boolean) {
         fetchSMM('getUser', {
           user_id: response.data.data?.user?.telegram_id ?? 0,
         }),
-        fetchSMM('getSocial'),
+        fetchSMM('getSocial', { public_key: config.public_key }),
       ]).then(() => (states.loadings.start = false));
     });
   } catch (e) {}

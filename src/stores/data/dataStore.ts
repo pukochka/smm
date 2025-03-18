@@ -39,6 +39,7 @@ export const useDataStore = defineStore('data', {
 
       favorites: LocalStorage.getItem('favorites') ?? [],
       unFavorites: [],
+      isSaved: false,
     } as DataStore),
   getters: {
     social: (state): SMMSocial[] => state._social,

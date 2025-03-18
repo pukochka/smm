@@ -1,12 +1,12 @@
 <template>
   <q-page class="q-px-sm q-py-md fit" style="overflow-x: hidden">
     <q-tab-panels
-      v-model="states.tabs"
       animated
-      transition-prev="jump-down"
-      transition-next="jump-up"
-      transition-duration="200"
       class="bg-transparent"
+      transition-duration="200"
+      transition-next="jump-up"
+      transition-prev="jump-down"
+      v-model="states.tabs"
     >
       <q-tab-panel
         class="q-pa-none q-gutter-y-md"

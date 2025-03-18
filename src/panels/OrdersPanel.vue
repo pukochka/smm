@@ -31,9 +31,9 @@
 
   <pagination-list
     search=""
-    :current-items="ordersValue"
     :visible-items="3"
     :el-height="elHeight"
+    :current-items="ordersValue"
   >
     <template v-slot="{ item }">
       <order-item :item="item"></order-item>

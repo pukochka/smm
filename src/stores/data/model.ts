@@ -23,6 +23,7 @@ export interface DataStore {
 
   favorites: SMMType[];
   unFavorites: SMMType[];
+  isSaved: boolean;
 }
 
 export type OrderPanels = 'new_order' | 'favorites' | 'repeat';

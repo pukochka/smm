@@ -14,8 +14,8 @@
         <q-btn
           flat
           size="md"
-          color="primary"
           icon="close"
+          color="primary"
           class="rounded"
           v-close-popup
         />
@@ -47,8 +47,8 @@
           outline
           size="md"
           color="primary"
-          :label="lang.close"
           class="col rounded"
+          :label="lang.close"
           v-close-popup
         />
       </div>
@@ -64,6 +64,7 @@ import 'src/utils/polifills';
 import { useStatesStore } from 'stores/states/statesStore';
 import { useDataStore } from 'stores/data/dataStore';
 import { useLang } from 'src/utils/use/useLang';
+import { replaceLettersWithNumbers } from 'src/utils/common';
 
 const states = useStatesStore();
 const data = useDataStore();
@@ -76,7 +77,7 @@ const orderPanel = computed(() => [
   },
   {
     label: lang.value.service,
-    value: data.selectedOrder.type_name,
+    value: replaceLettersWithNumbers(data.selectedOrder.type_name),
   },
   {
     label: lang.value.status,

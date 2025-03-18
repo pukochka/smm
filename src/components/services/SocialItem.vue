@@ -4,13 +4,13 @@
       no-wrap
       no-caps
       unelevated
-      color="primary"
-      class="fit rounded"
-      padding="6px"
       align="left"
-      :outline="data.staticSelected.social?.id !== item.id"
-      :disable="states.loadings.getCategories && !loading"
+      color="primary"
+      padding="6px"
+      class="fit rounded"
       :loading="loading"
+      :disable="states.loadings.getCategories && !loading"
+      :outline="data.staticSelected.social?.id !== item.id"
       @click="selectSocial"
     >
       <q-icon
@@ -29,7 +29,13 @@
             : '',
         ]"
       >
-        {{ item.name_en }}
+        <div
+          v-html="
+            item.name_en === 'VK' && data.isSaved
+              ? '▽K'
+              : replaceLettersWithNumbers(item.name_en)
+          "
+        ></div>
       </div>
     </q-btn>
   </div>
@@ -45,17 +51,20 @@ import { defaultSocial } from 'stores/content/defaults';
 
 import { fetchStatic } from 'boot/queries';
 import { icons } from 'stores/content/icons';
+import { replaceLettersWithNumbers } from 'src/utils/common';
 
 const props = withDefaults(defineProps<ServiceItemProps>(), {
   item: () => defaultSocial,
 });
+
+const vk = '<span>\/K</span>';
 
 const data = useDataStore();
 const states = useStatesStore();
 
 const loading = ref(false);
 
-const icon = computed(() => icons[props.item.id] ?? icons[8]);
+const icon = computed(() => icons[props.item.id] || icons[8]);
 
 const selectSocial = () => {
   loading.value = true;

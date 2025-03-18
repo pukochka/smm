@@ -20,22 +20,24 @@
       <q-select
         dense
         outlined
-        options-html
         emit-value
+        options-html
         behavior="dialog"
         class="smm-input"
-        transition-show="slide-down"
-        transition-hide="slide-up"
         input-debounce="0"
-        option-label="name_category"
+        transition-hide="slide-up"
+        transition-show="slide-down"
+        :option-label="
+          (item: any) => (item === null ? 'Empty' : replaceLettersWithNumbers(item.name_category))
+        "
         :options="options"
         :loading="loading.select"
         :use-input="menu.category"
         @filter="filterCategory"
-        @update:model-value="updateTypes"
-        v-model="data.staticSelected.category"
         @popup-hide="updateHide('category')"
         @popup-show="updateShow('category')"
+        @update:model-value="updateTypes"
+        v-model="data.staticSelected.category"
       >
         <template v-slot:no-option>
           <q-item>
@@ -54,10 +56,10 @@
         <q-btn
           flat
           dense
+          round
           size="md"
           color="red"
           :icon="favorite ? mdiHeart : mdiHeartOutline"
-          round
           @click="changeFavorite"
         />
 
@@ -66,18 +68,18 @@
           outlined
           options-html
           behavior="dialog"
-          class="smm-input smm-input__favorite"
-          transition-show="slide-down"
-          transition-hide="slide-up"
-          option-label="name"
           input-debounce="0"
+          option-label="name"
+          transition-hide="slide-up"
+          transition-show="slide-down"
+          class="smm-input smm-input__favorite"
           :options="options"
-          :disable="loading.select"
           :use-input="menu.type"
+          :disable="loading.select"
           @filter="filterType"
-          v-model="data.staticSelected.type"
           @popup-hide="updateHide('type')"
           @popup-show="updateShow('type')"
+          v-model="data.staticSelected.type"
         >
           <template v-slot:no-option>
             <q-item>
@@ -120,6 +122,7 @@ import {
   mdiHeart,
   mdiHeartOutline,
 } from '@quasar/extras/mdi-v7';
+import { replaceLettersWithNumbers } from 'src/utils/common';
 
 const data = useDataStore();
 const states = useStatesStore();

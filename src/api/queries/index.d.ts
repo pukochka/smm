@@ -35,7 +35,7 @@ declare interface SMMLocalQueries {
   /**
    *
    * */
-  getSocial: undefined;
+  getSocial: PublicKey;
 
   /**
    *

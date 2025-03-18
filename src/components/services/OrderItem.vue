@@ -10,7 +10,7 @@
       </q-item-label>
 
       <q-item-label class="ellipsis-2-lines">
-        {{ item.type_name }}
+        {{ replaceLettersWithNumbers(item.type_name) }}
       </q-item-label>
 
       <div class="row justify-end q-mt-sm">
@@ -21,8 +21,8 @@
           size="md"
           color="primary"
           class="rounded col-6"
-          :label="lang.details"
           :loading="loading"
+          :label="lang.details"
           @click="openOrder"
         />
       </div>
@@ -41,6 +41,7 @@ import { fetchSMM } from 'boot/queries';
 
 import { defaultOrder } from 'stores/content/defaults';
 import { useStatesStore } from 'stores/states/statesStore';
+import { replaceLettersWithNumbers } from 'src/utils/common';
 
 const props = withDefaults(defineProps<OrderItemProps>(), {
   item: () => defaultOrder,

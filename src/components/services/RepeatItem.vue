@@ -11,8 +11,8 @@
         flat
         rounded
         size="md"
-        color="primary"
         icon="close"
+        color="primary"
         @click="cancelRepeat"
       />
     </q-item-section>
@@ -29,8 +29,8 @@ const props = withDefaults(defineProps<RepeatItemProps>(), {
   item: () => defaultOrder,
 });
 
-const states = useStatesStore();
 const data = useDataStore();
+const states = useStatesStore();
 
 const price = computed(() => props.item.cost.comma());
 

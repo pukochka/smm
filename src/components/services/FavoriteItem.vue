@@ -16,7 +16,9 @@
       v-clickable="clickable"
       @click="select"
     >
-      <q-item-label class="ellipsis">{{ item.name }}</q-item-label>
+      <q-item-label class="ellipsis">
+        {{ replaceLettersWithNumbers(item.name) }}
+      </q-item-label>
 
       <q-item-label caption>{{ lang.behind }} 1000 - {{ price }}</q-item-label>
     </q-item-section>
@@ -26,22 +28,22 @@
         flat
         rounded
         size="md"
-        color="primary"
         icon="close"
+        color="primary"
         @click="cancelArrange"
       />
     </q-item-section>
 
     <transition name="button">
       <q-btn
-        v-if="selected && clearable === false"
+        v-if="selected && !clearable"
         square
         no-caps
         unelevated
         size="md"
         color="primary"
-        :label="lang.arrange"
         class="absolute-right q-px-lg rounded-left"
+        :label="lang.arrange"
         @click="arrange"
       />
     </transition>
@@ -57,6 +59,7 @@ import { useDataStore } from 'stores/data/dataStore';
 
 import { mdiHeart, mdiHeartOutline } from '@quasar/extras/mdi-v7';
 import { useNotify } from 'src/utils/use/useNotify';
+import { replaceLettersWithNumbers } from 'src/utils/common';
 
 const props = withDefaults(defineProps<FavoriteItemProps>(), {
   item: () => defaultType,
@@ -87,10 +90,15 @@ const select = () => {
 };
 
 const unFavorite = () => {
-  if (unChosen.value) {
+  const notification = (add?: boolean) =>
     useNotify(
-      `${lang.value.type} <b>${props.item.name}</b> ${lang.value.add_fav}`
+      `${lang.value.type} <b>${props.item.name}</b> ${
+        add ? lang.value.add_fav : lang.value.del_fav
+      }`
     );
+
+  if (unChosen.value) {
+    notification(true);
 
     data.unFavorites = data.unFavorites.filter(
       (item) => item.type_id !== props.item.type_id
@@ -98,9 +106,7 @@ const unFavorite = () => {
 
     return;
   }
-  useNotify(
-    `${lang.value.type} <b>${props.item.name}</b> ${lang.value.del_fav}`
-  );
+  notification();
 
   data.unFavorites.push(props.item);
 };
