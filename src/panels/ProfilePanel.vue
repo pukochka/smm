@@ -60,5 +60,3 @@ const updateUser = () => {
   fetchUser(true).then(() => (loading.value = false));
 };
 </script>
-
-<style lang="scss" scoped></style>

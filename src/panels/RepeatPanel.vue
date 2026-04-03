@@ -13,5 +13,3 @@ import RepeatItem from 'components/services/RepeatItem.vue';
 
 const data = useDataStore();
 </script>
-
-<style lang="scss" scoped></style>

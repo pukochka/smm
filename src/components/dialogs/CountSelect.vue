@@ -82,5 +82,3 @@ const update = () => {
   count.value = Number(data.fieldsValues['quantity']);
 };
 </script>
-
-<style lang="scss" scoped></style>

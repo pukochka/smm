@@ -80,5 +80,3 @@ interface OrderItemProps {
   item: SMMOrder;
 }
 </script>
-
-<style lang="scss" scoped></style>

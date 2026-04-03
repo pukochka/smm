@@ -14,11 +14,19 @@
       @click="selectSocial"
     >
       <q-icon
+        v-if="props.item.id !== 12"
+        size="23px"
         :name="icon.icon"
         :color="
           data.staticSelected.social?.id !== item.id ? icon.color : 'white'
         "
-        size="23px"
+      />
+
+      <img
+        v-else
+        width="23"
+        height="23"
+        src="https://maxicons.ru/icons/MAX.svg"
       />
 
       <div
@@ -47,17 +55,14 @@ import { computed, ref } from 'vue';
 import { useDataStore } from 'stores/data/dataStore';
 import { useStatesStore } from 'stores/states/statesStore';
 
-import { defaultSocial } from 'stores/content/defaults';
-
 import { fetchStatic } from 'boot/queries';
 import { icons } from 'stores/content/icons';
+import { defaultSocial } from 'stores/content/defaults';
 import { replaceLettersWithNumbers } from 'src/utils/common';
 
 const props = withDefaults(defineProps<ServiceItemProps>(), {
   item: () => defaultSocial,
 });
-
-const vk = '<span>\/K</span>';
 
 const data = useDataStore();
 const states = useStatesStore();
@@ -81,5 +86,3 @@ interface ServiceItemProps {
   item: SMMSocial;
 }
 </script>
-
-<style lang="scss" scoped></style>

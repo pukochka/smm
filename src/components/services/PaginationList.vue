@@ -205,5 +205,3 @@ interface PaginationListProps {
   searching?: boolean;
 }
 </script>
-
-<style lang="scss" scoped></style>

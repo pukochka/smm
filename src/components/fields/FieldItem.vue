@@ -55,5 +55,3 @@ interface FieldItemProps {
   optional: boolean;
 }
 </script>
-
-<style lang="scss" scoped></style>

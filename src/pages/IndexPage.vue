@@ -10,10 +10,10 @@
     >
       <q-tab-panel
         class="q-pa-none q-gutter-y-md"
+        style="min-height: calc(100vh - 140px)"
+        :key="index"
         :name="tab.name"
         v-for="(tab, index) of tabs"
-        :key="index"
-        style="min-height: calc(100vh - 140px)"
       >
         <component :is="tab.component" />
       </q-tab-panel>
@@ -29,5 +29,6 @@ import { tabs } from 'stores/content';
 import { useStatesStore } from 'stores/states/statesStore';
 
 import DescButton from 'components/DescButton.vue';
+
 const states = useStatesStore();
 </script>

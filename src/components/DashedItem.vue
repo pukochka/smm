@@ -23,5 +23,3 @@ interface DashedItemProps {
   value: any;
 }
 </script>
-
-<style lang="scss" scoped></style>

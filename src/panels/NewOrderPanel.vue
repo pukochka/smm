@@ -1,16 +1,12 @@
 <template>
-  <div class="">
-    <div class="text-body1 text-weight-bold q-pb-sm">{{ lang.service }}</div>
+  <div class="text-body1 text-weight-bold q-pb-sm">{{ lang.service }}</div>
 
-    <div class="">
-      <div class="row q-col-gutter-sm">
-        <social-item
-          v-for="(social, index) of data.social"
-          :key="index"
-          :item="social"
-        ></social-item>
-      </div>
-    </div>
+  <div class="row q-col-gutter-sm">
+    <social-item
+      v-for="(social, index) of data.social"
+      :key="index"
+      :item="social"
+    ></social-item>
   </div>
 
   <div class="relative-position q-gutter-y-md">

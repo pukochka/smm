@@ -126,5 +126,3 @@ interface FavoriteItemProps {
   clearable?: boolean;
 }
 </script>
-
-<style lang="scss" scoped></style>

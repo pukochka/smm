@@ -113,5 +113,3 @@ interface FieldProps {
   field: SMMFieldsSchema | null;
 }
 </script>
-
-<style lang="scss" scoped></style>

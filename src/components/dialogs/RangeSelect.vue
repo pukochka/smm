@@ -113,5 +113,3 @@ const updateFields = () => {
   data.fieldsValues['max'] = maxRange.value;
 };
 </script>
-
-<style lang="scss" scoped></style>

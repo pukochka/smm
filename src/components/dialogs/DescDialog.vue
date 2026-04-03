@@ -52,5 +52,3 @@ const desc = computed(() =>
     : data.staticSelected[langStr.value]?.desc_ru
 );
 </script>
-
-<style lang="scss" scoped></style>

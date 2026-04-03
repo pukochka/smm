@@ -49,5 +49,3 @@ const changeLang = (lang: string) => {
   }).then(() => (loading.value = false));
 };
 </script>
-
-<style lang="scss" scoped></style>

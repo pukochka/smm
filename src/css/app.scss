@@ -1,7 +1,13 @@
+@import '../assets/fonts/fonts.css';
 @import 'quasar/src/css/variables.sass';
 
 body {
-  font-family: 'Yandex Sans Text', serif !important;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: none;
+  font-family: 'Geometria', serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 ::-webkit-scrollbar {

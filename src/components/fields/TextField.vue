@@ -24,5 +24,3 @@ interface FieldProps {
   grow: boolean;
 }
 </script>
-
-<style lang="scss" scoped></style>

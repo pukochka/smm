@@ -49,5 +49,3 @@ const clearFavorites = () => {
   data.staticSelected.favoriteArrange = null;
 };
 </script>
-
-<style lang="scss" scoped></style>

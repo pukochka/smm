@@ -160,5 +160,3 @@ const createOrder = () => {
   }).then(() => (loading.value.create = false));
 };
 </script>
-
-<style lang="scss" scoped></style>

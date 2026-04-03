@@ -46,5 +46,3 @@ interface RepeatItemProps {
   item: SMMOrder;
 }
 </script>
-
-<style lang="scss" scoped></style>

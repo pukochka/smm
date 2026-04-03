@@ -44,20 +44,18 @@
       <div class="row no-wrap">
         <q-btn
           flat
-          no-caps
+          stack
           square
+          no-wrap
+          no-caps
           class="col"
           color="primary"
-          v-for="(tab, index) of tabs"
           :key="index"
+          :icon="tab.icon"
+          :label="tab.label"
+          v-for="(tab, index) of tabs"
           @click="states.toggleTab(tab.name)"
-        >
-          <div class="column items-center">
-            <q-icon :name="tab.icon" color="primary" size="21px" />
-
-            <div class="text-subtitle2">{{ tab.label }}</div>
-          </div>
-        </q-btn>
+        />
       </div>
     </q-footer>
 
